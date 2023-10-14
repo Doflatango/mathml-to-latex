@@ -1003,6 +1003,16 @@ describe('#convert', () => {
       });
     });
 
+    describe('with horizontal arrow', () => {
+      it('handles it as it were a subsup tag and convert special operator', () => {
+        const mathml = mathmlStrings.munderoverWithHorizontalArrow;
+
+        const result = MathMLToLaTeX.convert(mathml);
+
+        expect(result).toBe('\\xrightarrow[0]{1}');
+      });
+    });
+
     describe('with three contents and especial operator', () => {
       it('handles it as it were a subsup tag and convert special operator', () => {
         const mathml = mathmlStrings.munderoverEncoded;

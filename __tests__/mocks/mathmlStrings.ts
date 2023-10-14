@@ -1668,6 +1668,18 @@ export const munderover = `
 </root>
 `;
 
+export const munderoverWithHorizontalArrow = `
+<root>
+  <math>
+    <munderover>
+      <mo> &#x2192;</mo>
+      <mn> 0 </mn>
+      <mn> 1 </mn>
+    </munderover>
+  </math>
+</root>
+`;
+
 export const munderoverEncoded = `
 <root>
   <math>
