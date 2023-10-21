@@ -1279,6 +1279,19 @@ export const msupWithMrowOnBottom = `
 </root>
 `;
 
+export const msupWithDecimalBase = `
+<root>
+  <math>
+    <msup>
+      <mrow>
+        <mn>0.618</mn>
+      </mrow>
+      <mi>e</mi>
+    </msup>
+  </math>
+</root>
+`;
+
 export const msupWithMrowOnTopBottom = `
 <root>
   <math>
@@ -1344,6 +1357,23 @@ export const msubWithMrowOnTop = `
         <mn>x</mn>
         <mo>+</mo>
         <mn>y</mn>
+      </mrow>
+      <mi>2</mi>
+    </msub>
+  </math>
+</root>
+`;
+
+export const msubWithParenthesisWrappedMrowOnTop = `
+<root>
+  <math>
+    <msub>
+      <mrow>
+        <mo>(</mo>
+        <mn>x</mn>
+        <mo>+</mo>
+        <mn>y</mn>
+        <mo>)</mo>
       </mrow>
       <mi>2</mi>
     </msub>

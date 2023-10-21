@@ -19,13 +19,13 @@ export class MFrac implements ToLaTeXConverter {
     const num = mathMLElementToLaTeXConverter(children[0]).convert();
     const den = mathMLElementToLaTeXConverter(children[1]).convert();
 
-    if (this._isBevelled()) return `${this._wrapIfMoreThanOneChar(num)}/${this._wrapIfMoreThanOneChar(den)}`;
+    if (this._isBevelled()) return `${this._wrapIfMoreThanOneUnit(num)}/${this._wrapIfMoreThanOneUnit(den)}`;
 
     return `\\frac{${num}}{${den}}`;
   }
 
-  private _wrapIfMoreThanOneChar(str: string): string {
-    return new ParenthesisWrapper().wrapIfMoreThanOneChar(str);
+  private _wrapIfMoreThanOneUnit(str: string): string {
+    return new ParenthesisWrapper().wrapIfMoreThanOneUnit(str);
   }
 
   private _isBevelled(): boolean {

@@ -19,6 +19,6 @@ export class MSup implements ToLaTeXConverter {
     const base = mathMLElementToLaTeXConverter(children[0]).convert();
     const exponent = mathMLElementToLaTeXConverter(children[1]).convert();
 
-    return `${new ParenthesisWrapper().wrapIfMoreThanOneChar(base)}^${new BracketWrapper().wrap(exponent)}`;
+    return `${new ParenthesisWrapper().wrapIfMoreThanOneUnit(base)}^${new BracketWrapper().wrap(exponent)}`;
   }
 }

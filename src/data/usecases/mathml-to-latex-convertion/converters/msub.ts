@@ -19,6 +19,6 @@ export class MSub implements ToLaTeXConverter {
     const base = mathMLElementToLaTeXConverter(children[0]).convert();
     const subscript = mathMLElementToLaTeXConverter(children[1]).convert();
 
-    return `${new ParenthesisWrapper().wrapIfMoreThanOneChar(base)}_${new BracketWrapper().wrap(subscript)}`;
+    return `${new ParenthesisWrapper().wrapIfMoreThanOneUnit(base)}_${new BracketWrapper().wrap(subscript)}`;
   }
 }

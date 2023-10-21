@@ -715,6 +715,16 @@ describe('#convert', () => {
       });
     });
 
+    describe('msup tag contains exponent with single char content and base with a decimal', () => {
+      it('converts msup joining its multi char contents with ^ and wrap base without parenthesis', () => {
+        const mathml = mathmlStrings.msupWithDecimalBase;
+
+        const result = MathMLToLaTeX.convert(mathml);
+
+        expect(result).toMatch('0.618^{e}');
+      });
+    });
+
     describe('msup tag contains both exponent and base with more than one char content', () => {
       it('converts msup joining its multi char contents with ^, wrap base in parenthesis and exponent in brackets', () => {
         const mathml = mathmlStrings.msupWithMrowOnTopBottom;
@@ -764,6 +774,16 @@ describe('#convert', () => {
         const result = MathMLToLaTeX.convert(mathml);
 
         expect(result).toMatch('\\left(x + y\\right)_{2}');
+      });
+    });
+
+    describe('msub tag contains subscript with single char content and base with more than one char content which wrapped with parenthesis', () => {
+      it('converts msub joining its multi char contents with _ and wrap base in parenthesis', () => {
+        const mathml = mathmlStrings.msubWithParenthesisWrappedMrowOnTop;
+
+        const result = MathMLToLaTeX.convert(mathml);
+
+        expect(result).toMatch('\\left(\\right. x + y \\left.\\right)_{2}');
       });
     });
 
@@ -1121,7 +1141,7 @@ describe('#convert', () => {
       const result = MathMLToLaTeX.convert(mathml);
 
       expect(result).toBe(
-        'd = \\left(\\left(\\frac{q^{2} L}{2 \\pi \\left(\\epsilon\\right)_{0} m g}\\right)\\right)^{1 / 3}',
+        'd = \\left(\\frac{q^{2} L}{2 \\pi \\epsilon_{0} m g}\\right)^{1 / 3}',
       );
     });
 
