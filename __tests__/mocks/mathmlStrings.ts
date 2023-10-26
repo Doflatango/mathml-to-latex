@@ -2571,6 +2571,16 @@ export const inputExpectedPairs = [
     op: 'mo',
   },
   {
+    input: '{',
+    expected: '\\left\\{\\right.',
+    op: 'mo',
+  },
+  {
+    input: '}',
+    expected: '\\left.\\right\\}',
+    op: 'mo',
+  },
+  {
     input: '∢',
     expected: '\\measuredangle',
     op: 'mo',
