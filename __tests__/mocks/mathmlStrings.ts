@@ -743,6 +743,17 @@ export const mfrac = `
 </root>
 `;
 
+export const mfracWithZeroLinethickness = `
+<root>
+  <math>
+    <mfrac linethickness="0">
+      <mi>x</mi>
+      <mn>3</mn>
+    </mfrac>
+  </math>
+</root>
+`;
+
 export const mfracWithMrow = `
 <root>
   <math>

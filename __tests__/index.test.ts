@@ -357,6 +357,16 @@ describe('#convert', () => {
       });
     });
 
+    describe('with linethickness = 0', () => {
+      it('converts mfrac wrap inside \\binom command', () => {
+        const mathml = mathmlStrings.mfracWithZeroLinethickness;
+
+        const result = MathMLToLaTeX.convert(mathml);
+
+        expect(result).toMatch('\\binom{x}{3}');
+      });
+    });
+
     describe('containing multiple char contents', () => {
       it('converts mfrac wrap inside \\frac command', () => {
         const mathml = mathmlStrings.mfracWithMrow;

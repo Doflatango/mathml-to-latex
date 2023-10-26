@@ -19,7 +19,11 @@ export class MFrac implements ToLaTeXConverter {
     const num = mathMLElementToLaTeXConverter(children[0]).convert();
     const den = mathMLElementToLaTeXConverter(children[1]).convert();
 
-    if (this._isBevelled()) return `${this._wrapIfMoreThanOneUnit(num)}/${this._wrapIfMoreThanOneUnit(den)}`;
+    if (this._isBevelled()) {
+      return `${this._wrapIfMoreThanOneUnit(num)}/${this._wrapIfMoreThanOneUnit(den)}`;
+    } else if (this._isLineless()) {
+      return `\\binom{${num}}{${den}}`;
+    }
 
     return `\\frac{${num}}{${den}}`;
   }
@@ -30,5 +34,9 @@ export class MFrac implements ToLaTeXConverter {
 
   private _isBevelled(): boolean {
     return !!this._mathmlElement.attributes.bevelled;
+  }
+
+  private _isLineless(): boolean {
+    return this._mathmlElement.attributes.linethickness === '0'
   }
 }
